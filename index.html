@@ -96,92 +96,117 @@
       </table>
     </div>
   </section>
-  <!-----------------------------------Current Weather END------------------------->
-
   <section id="weather-forecast">
     <h1 class="heders">Weather Forecast 🗺</h1>
 
     <div class="date-serch">
-      To : <input id="startDate" type="date">&nbsp;&nbsp;&nbsp;
-      End : <input id="endDate" type="date">
-      <button onclick="searchForecast()">Search Date</button>
+        To : <input id="startDate" type="date">&nbsp;&nbsp;&nbsp;
+        End : <input id="endDate" type="date">
+        <button onclick="searchForecast()">Search Date</button>
     </div>
     <hr>
     <div style="overflow-x:auto;">
-      <table class="tblForcast">
-        <tr>
-          <td>
-            <strong id="date1">2023-02-24</strong>
-          </td>
-          <td>
-            <strong id="date2">2023-02-25</strong>
-          </td>
-          <td>
-            <strong id="date3">2023-02-26</strong>
-          </td>
-          <td>
-            <strong id="date4">2023-02-27</strong>
-          </td>
-          <td>
-            <strong id="date5">2023-02-28</strong>
-          </td>
-          <td>
-            <strong id="date6">2023-02-29</strong>
-          </td>
-          <td>
-            <strong id="date7">2023-02-30</strong>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <img id="img1" class="img" src="img/icons8-cloud-96.png" alt="">
-          </td>
-          <td>
-            <img id="img2" class="img" src="img/icons8-cloud-lightning-96.png" alt="">
-          </td>
-          <td>
-            <img id="img3" class="img" src="img/icons8-partly-cloudy-day-96.png" alt="">
-          </td>
-          <td>
-            <img id="img4" class="img" src="img/icons8-night-wind-96.png" alt="">
-          </td>
-          <td>
-            <img id="img5" class="img" src="img/icons8-storm-94.png" alt="">
-          </td>
-          <td>
-            <img id="img6" class="img" src="img/icons8-cloud-lightning-96.png" alt="">
-          </td>
-          <td>
-            <img id="img7" class="img" src="img/icons8-night-wind-96.png" alt="">
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <strong class="title1">cloud</strong>
-          </td>
-          <td>
-            <strong class="title2">cloud-lightning</strong>
-          </td>
-          <td>
-            <strong class="title3">partly-cloudy</strong>
-          </td>
-          <td>
-            <strong class="title4">night-wind</strong>
-          </td>
-          <td>
-            <strong class="title5">storm</strong>
-          </td>
-          <td>
-            <strong class="title6">cloud-lightning</strong>
-          </td>
-          <td>
-            <strong class="title7">night-wind</strong>
-          </td>
-        </tr>
-
-      </table>
+        <table class="tblForcast">
+            <tr>
+                <td>
+                    <strong id="date1"></strong>
+                </td>
+                <td>
+                    <strong id="date2"></strong>
+                </td>
+                <td>
+                    <strong id="date3"></strong>
+                </td>
+                <td>
+                    <strong id="date4"></strong>
+                </td>
+                <td>
+                    <strong id="date5"></strong>
+                </td>
+                <td>
+                    <strong id="date6"></strong>
+                </td>
+                <td>
+                    <strong id="date7"></strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <img id="img1" class="img" src="img/icons8-cloud-96.png" alt="">
+                </td>
+                <td>
+                    <img id="img2" class="img" src="img/icons8-cloud-lightning-96.png" alt="">
+                </td>
+                <td>
+                    <img id="img3" class="img" src="img/icons8-partly-cloudy-day-96.png" alt="">
+                </td>
+                <td>
+                    <img id="img4" class="img" src="img/icons8-night-wind-96.png" alt="">
+                </td>
+                <td>
+                    <img id="img5" class="img" src="img/icons8-storm-94.png" alt="">
+                </td>
+                <td>
+                    <img id="img6" class="img" src="img/icons8-cloud-lightning-96.png" alt="">
+                </td>
+                <td>
+                    <img id="img7" class="img" src="img/icons8-night-wind-96.png" alt="">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong class="title1">cloud</strong>
+                </td>
+                <td>
+                    <strong class="title2">cloud-lightning</strong>
+                </td>
+                <td>
+                    <strong class="title3">partly-cloudy</strong>
+                </td>
+                <td>
+                    <strong class="title4">night-wind</strong>
+                </td>
+                <td>
+                    <strong class="title5">storm</strong>
+                </td>
+                <td>
+                    <strong class="title6">cloud-lightning</strong>
+                </td>
+                <td>
+                    <strong class="title7">night-wind</strong>
+                </td>
+            </tr>
+        </table>
     </div>
-  </section>
+</section>
+
+<script>
+  // Function to set current dates in the forecast section
+  function setCurrentDates() {
+      const today = new Date();
+      const dates = [];
+
+      // Generate the next 7 dates
+      for (let i = 0; i < 7; i++) {
+          const nextDate = new Date(today);
+          nextDate.setDate(today.getDate() + i);
+          dates.push(nextDate.toISOString().split('T')[0]); // Format: YYYY-MM-DD
+      }
+
+      // Set the dates to the respective elements
+      document.getElementById("date1").textContent = dates[0];
+      document.getElementById("date2").textContent = dates[1];
+      document.getElementById("date3").textContent = dates[2];
+      document.getElementById("date4").textContent = dates[3];
+      document.getElementById("date5").textContent = dates[4];
+      document.getElementById("date6").textContent = dates[5];
+      document.getElementById("date7").textContent = dates[6];
+  }
+
+  // Call the function to set the dates on page load
+  window.onload = setCurrentDates;
+</script>
+
 
   <section id="weather-map">
     <h1 class="heders">Map</h1>
@@ -248,85 +273,83 @@
   
 
   <!--------------------------------------footer starts------------------------------------------------->
-
-  <footer id="footer">
-    <div class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
-      <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
-          <div class="max-w-xl lg:max-w-lg">
-            <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Stay Updated with Our Newsletter!
-            </h2>
-            <p class="mt-4 text-lg leading-8 text-gray-300">
-                Join our community and receive the latest weather updates, news, and insights directly in your inbox. Stay informed and prepared for any weather!
-                Join our newsletter and never miss a thing!
-            </p>
-            <div class="mt-6 flex max-w-md gap-x-4">
-              <label for="email-address" class="sr-only">Email address</label>
-              <input id="email-address" name="email" type="email" autocomplete="email" required
-                class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                placeholder="Enter your email" />
-              <button type="submit"
-                class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
-                Subscribe
-              </button>
-            </div>
+<footer id="footer">
+  <div class="relative isolate overflow-hidden bg-gray-900 py-16 sm:py-24 lg:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-2">
+        <div class="max-w-xl lg:max-w-lg">
+          <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Stay Updated with Our Newsletter!
+          </h2>
+          <p class="mt-4 text-lg leading-8 text-gray-300">
+            Join our community and receive the latest weather updates, news, and insights directly in your inbox. Stay informed and prepared for any weather!
+          </p>
+          <div class="mt-6 flex max-w-md gap-x-4">
+            <label for="email-address" class="sr-only">Email address</label>
+            <input id="email-address" name="email" type="email" autocomplete="email" required
+              class="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
+              placeholder="Enter your email" />
+            <button type="submit"
+              class="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500">
+              Subscribe
+            </button>
           </div>
-          <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
-            <div class="flex flex-col items-start">
-              <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                  aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
-                </svg>
-              </div>
-              <dt class="mt-4 font-semibold text-white">Weekly articles</dt>
-              <dd class="mt-2 leading-7 text-gray-400">
-                Enjoy fresh insights and tips every week, crafted just for you.
-              </dd>
+        </div>
+        <dl class="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:pt-2">
+          <div class="flex flex-col items-start">
+            <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+              <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+              </svg>
             </div>
-            <div class="flex flex-col items-start">
-              <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
-                <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                  aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M10.05 4.575a1.575 1.575 0 10-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 013.15 0v1.5m-3.15 0l.075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 013.15 0V15M6.9 7.575a1.575 1.575 0 10-3.15 0v8.175a6.75 6.75 0 006.75 6.75h2.018a5.25 5.25 0 003.712-1.538l1.732-1.732a5.25 5.25 0 001.538-3.712l.003-2.024a.668.668 0 01.198-.471 1.575 1.575 0 10-2.228-2.228 3.818 3.818 0 00-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0116.35 15m.002 0h-.002" />
-                </svg>
-              </div>
-              <dt class="mt-4 font-semibold text-white">No spam</dt>
-              <dd class="mt-2 leading-7 text-gray-400">
-                We value your privacy. Only quality content, never unwanted emails.
-                We respect your inbox and only send content you'll love—no junk mail.
-              </dd>
+            <dt class="mt-4 font-semibold text-white">Weekly articles</dt>
+            <dd class="mt-2 leading-7 text-gray-400">
+              Enjoy fresh insights and tips every week, crafted just for you.
+            </dd>
+          </div>
+          <div class="flex flex-col items-start">
+            <div class="rounded-md bg-white/5 p-2 ring-1 ring-white/10">
+              <svg class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M10.05 4.575a1.575 1.575 0 10-3.15 0v3m3.15-3v-1.5a1.575 1.575 0 013.15 0v1.5m-3.15 0l.075 5.925m3.075.75V4.575m0 0a1.575 1.575 0 013.15 0V15M6.9 7.575a1.575 1.575 0 10-3.15 0v8.175a6.75 6.75 0 006.75 6.75h2.018a5.25 5.25 0 003.712-1.538l1.732-1.732a5.25 5.25 0 001.538-3.712l.003-2.024a.668.668 0 01.198-.471 1.575 1.575 0 10-2.228-2.228 3.818 3.818 0 00-1.12 2.687M6.9 7.575V12m6.27 4.318A4.49 4.49 0 0116.35 15m.002 0h-.002" />
+              </svg>
             </div>
-          </dl>
+            <dt class="mt-4 font-semibold text-white">No spam</dt>
+            <dd class="mt-2 leading-7 text-gray-400">
+              We value your privacy. Only quality content, never unwanted emails.
+            </dd>
+          </div>
+        </dl>
+      </div>
+      <div class="mt-10 pt-10 border-t border-gray-700">
+        <div class="flex justify-between items-center">
+          <p class="text-gray-300">© 2024 Weather World. All rights reserved.</p>
+          <div class="flex space-x-4">
+            <a href="#" aria-label="Facebook" class="text-gray-400 hover:text-white">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M22.675 0h-21.35C.925 0 0 .925 0 2.625v18.75C0 23.075.925 24 2.625 24h21.35C23.075 24 24 23.075 24 21.375v-18.75C24 .925 23.075 0 22.675 0zM20.925 24h-3.575v-9.375h3.075l.45-3.575h-3.525V8.25c0-1.025.225-1.725 1.725-1.725h1.725V4.25h-2.475c-2.15 0-3.225 1.375-3.225 3.5v2.725h-2.675v3.575h2.675V24h3.575z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter(X)" class="text-gray-400 hover:text-white">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M24 4.569a9.826 9.826 0 01-2.828.775A4.936 4.936 0 0023.338 3c-.951.563-2.005.973-3.127 1.194A4.921 4.921 0 0016.616 2c-2.738 0-4.958 2.23-4.958 4.958 0 .387.043.765.127 1.128C7.691 7.675 4.066 5.491 1.64 2.208a4.946 4.946 0 00-.671 2.487c0 1.72.873 3.229 2.197 4.11A4.913 4.913 0 01.964 8.392v.052c0 2.386 1.692 4.379 3.934 4.832-.413.111-.847.171-1.296.171-.315 0-.624-.031-.927-.086.628 1.958 2.445 3.385 4.595 3.423a9.871 9.871 0 01-6.102 2.107c-.396 0-.785-.023-1.171-.067A13.892 13.892 0 007.542 20c9.188 0 14.207-7.618 14.207-14.215 0-.216 0-.432-.015-.645A10.117 10.117 0 0024 4.569z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="text-gray-400 hover:text-red">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2.162c3.157 0 3.534.012 4.788.07 1.284.058 2.172.26 2.675.43.63.23 1.095.497 1.571.973.475.475.742.941.973 1.571.17.503.372 1.391.43 2.675.058 1.254.07 1.63.07 4.788s-.012 3.534-.07 4.788c-.058 1.284-.26 2.172-.43 2.675-.23.63-.497 1.095-.973 1.571-.475.475-.941.742-1.571.973-.503.17-1.391.372-2.675.43-1.254.058-1.63.07-4.788.07s-3.534-.012-4.788-.07c-1.284-.058-2.172-.26-2.675-.43-.63-.23-1.095-.497-1.571-.973-.475-.475-.742-.941-.973-1.571-.17-.503-.372-1.391-.43-2.675-.058-1.254-.07-1.63-.07-4.788s.012-3.534.07-4.788c.058-1.284.26-2.172.43-2.675.23-.63.497-1.095.973-1.571.475-.475.941-.742 1.571-.973.503-.17 1.391-.372 2.675-.43 1.254-.058 1.63-.07 4.788-.07zm0-2.162c-3.165 0-3.553.012-4.788.072-1.237.06-2.086.273-2.835.556-.755.286-1.388.683-1.925 1.12-.536.537-.833 1.171-1.12 1.925-.283.749-.496 1.598-.556 2.835-.059 1.235-.072 1.623-.072 4.788s.012 3.553.072 4.788c.06 1.237.273 2.086.556 2.835.286.755.683 1.388 1.12 1.925.537.536 1.171.833 1.925 1.12.749.283 1.598.496 2.835.556 1.235.059 1.623.072 4.788.072s3.553-.012 4.788-.072c1.237-.06 2.086-.273 2.835-.556.755-.286 1.388-.683 1.925-1.12.536-.537.833-1.171 1.12-1.925.283-.749.496-1.598.556-2.835.059-1.235.072-1.623.072-4.788s-.012-3.553-.072-4.788c-.06-1.237-.273-2.086-.556-2.835-.286-.755-.683-1.388-1.12-1.925-.537-.536-1.171-.833-1.925-1.12-.749-.283-1.598-.496-2.835-.556-1.235-.059-1.623-.072-4.788-.072zm0 6.847c-2.868 0-5.183 2.316-5.183 5.183s2.316 5.183 5.183 5.183 5.183-2.316 5.183-5.183-2.316-5.183-5.183-5.183zm0 8.046a2.863 2.863 0 1 1 0-5.726 2.863 2.863 0 0 1 0 5.726zm4.548-8.043a.875.875 0 1 1-.004-1.75.875.875 0 0 1 .004 1.75z" />
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 blur-3xl xl:-top-6" aria-hidden="true">
-        <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30" style="
-              clip-path: polygon(
-                74.1% 44.1%,
-                100% 61.6%,
-                97.5% 26.9%,
-                85.5% 0.1%,
-                80.7% 2%,
-                72.5% 32.5%,
-                60.2% 62.4%,
-                52.4% 68.1%,
-                47.5% 58.3%,
-                45.2% 34.5%,
-                27.5% 76.7%,
-                0.1% 64.9%,
-                17.9% 100%,
-                27.6% 76.8%,
-                76.1% 97.7%,
-                74.1% 44.1%
-              );
-            "></div>
-      </div>
     </div>
-  </footer>
+  </div>
+</footer>
+<!--------------------------------------footer ends------------------------------------------------->
+
 
 
 
