@@ -83,7 +83,7 @@ The JavaScript file handles the following tasks:
 
 ## Contributing
 
-Contributions are welcome! If you would like to contribute, please follow these steps:
+Contributions to the project are highly encouraged. If you have suggestions for enhancements or wish to report issues, please submit a pull request or open an issue on the repository. If you would like to contribute, please follow these steps:
 
 1. Fork the repository.
 2. Create a new branch (e.g., `feature-branch`).
@@ -91,11 +91,14 @@ Contributions are welcome! If you would like to contribute, please follow these 
 4. Push your changes to your forked repository.
 5. Create a pull request.
 
+
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project does not currently have a specified license. Users are free to utilize and modify the application as needed.
 
 ## Acknowledgments
+
+I extend my gratitude myself as a contributor and users for their valuable feedback and support.
 
 - [WeatherAPI](https://weatherapi.com/)
 - [NewsAPI](https://newsapi.org/)
