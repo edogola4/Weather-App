@@ -1,5 +1,8 @@
 # Weather-App
 
+![Preview](./img/preview.png)
+
+
 ## Overview
 
 The **Weather App** is a web application that provides real-time weather updates and forecasts based on user location or specified cities. It utilizes the openWeatherAPI for weather data, OpenStreetMap for geolocation mapping, and the News API to display the latest news articles relevant to the weather conditions. The app features a clean, responsive design that enhances the user experience.
